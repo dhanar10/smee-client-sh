@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Jenkins Bitbucket webhook example: bash smee-client.sh "https://smee.io/XXXXXXXXXXXXXXXX" "https://jenkins/bitbucket-hook" "^x-event-key:"
+# Jenkins -> smee.io -> Bitbucket webhook example: bash smee-client.sh "https://smee.io/XXXXXXXXXXXXXXXX" "https://jenkins/bitbucket-hook" "^x-event-key:"
 
 SMEE_URL="$1"
 TARGET_URL="$2"
