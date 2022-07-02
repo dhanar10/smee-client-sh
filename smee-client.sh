@@ -25,10 +25,11 @@ curl -s -N -H "Accept: text/event-stream" "$SMEE_URL" | while read -r LINE; do
     fi
   else
     if [ -n "$SMEE_DATA" ]; then
-      echo + curl -s --retry 3 --retry-delay 0 --connect-timeout 10 --max-time 30 "$TARGET_URL" \
-          $(echo "$SMEE_DATA" | grep -v "^\(content-type\|body\|query\|timestamp\):" | grep "$HEADERS_REGEX" | xargs -I{} echo "-H '{}'") \
-          -H "'$(echo "$SMEE_DATA" | grep "^content-type:")'" \
-          -d "'$(echo "$SMEE_DATA" | grep "^body:" |  cut -d":" -f2-)'"
+      #echo + \
+          curl -s --retry 3 --retry-delay 0 --connect-timeout 10 --max-time 30 "$TARGET_URL" \
+              $(echo "$SMEE_DATA" | grep -v "^\(content-type\|body\|query\|timestamp\):" | grep "$HEADERS_REGEX" | xargs -I{} echo "-H '{}'") \
+              -H "'$(echo "$SMEE_DATA" | grep "^content-type:")'" \
+              -d "'$(echo "$SMEE_DATA" | grep "^body:" |  cut -d":" -f2-)'"
       echo
     fi
   fi
